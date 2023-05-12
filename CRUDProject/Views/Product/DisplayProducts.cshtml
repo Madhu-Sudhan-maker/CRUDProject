@@ -1,0 +1,52 @@
+﻿@model IEnumerable<CRUDProject.Models.Product>
+
+@{
+    ViewBag.Title = "DisplyProducts";
+}
+<h2 style="text-align:center;background-color:yellowgreen;color:orangered" AllowPaging="true">Products Details</h2>
+
+<table border="1" align="center" class="table-condensed">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(P => P.ProductId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(P => P.ProductName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(P => P.CategoryId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(P => P.CategoryName)
+        </th>
+        <th>
+            Actions
+        </th>
+    </tr>
+    @foreach (CRUDProject.Models.Product product in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(P => product.ProductId)
+            </td>
+            <td>
+                @Html.DisplayFor(P => product.ProductName)
+            </td>
+            <td>
+                @Html.DisplayFor(P => product.CategoryId)
+            </td>
+            <td>
+                @Html.DisplayFor(P => product.CategoryName)
+            </td>
+            <td>
+                @Html.ActionLink("View", "DisplayProduct", new { ProductId = product.ProductId })
+                @Html.ActionLink("Edit", "EditProduct", new { ProductId = product.ProductId })
+                
+                @Html.ActionLink("Delete","DeleteProduct", new {ProductId = product.ProductId }, new {onclick= "return confirm('Are you sure of deleting the record?')" })
+            </td>
+        </tr>
+    }
+    <tr><td colspan="6" align="center">@Html.ActionLink("Add New Product", "AddProduct")</td></tr>
+</table>
+
+

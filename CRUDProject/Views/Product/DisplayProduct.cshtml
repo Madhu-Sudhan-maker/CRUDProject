@@ -1,0 +1,36 @@
+﻿@model CRUDProject.Models.Product
+
+@{
+    ViewBag.Title = "DisplayProduct";
+}
+
+
+<h2 style="text-align:center;background-color:yellowgreen;color:orangered">Product Details</h2>
+<div align="center">
+    <table border="1" align="center">
+        <th>Product Details</th>
+        <tr>
+            <td>
+                @Model.ProductId
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Model.ProductName
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Model.CategoryId
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Model.CategoryName
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" align="center">@Html.ActionLink("Back to Product Details", "DisplayProducts")</td>
+        </tr>
+    </table>
+</div>

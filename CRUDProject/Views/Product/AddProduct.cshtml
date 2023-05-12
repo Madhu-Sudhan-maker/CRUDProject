@@ -1,0 +1,35 @@
+﻿@model CRUDProject.Models.Product
+
+@{
+    ViewBag.Title = "AddProduct";
+}
+
+<h2 style="text-align:center;background-color:yellowgreen;color:orangered">Add New Product</h2>
+@using (Html.BeginForm("AddProduct", "Product"))
+{
+    <div>
+        @Html.LabelFor(P => P.ProductId)
+        <br />
+        @Html.TextBoxFor(P => P.ProductId)
+    </div>
+    <div>
+        @Html.LabelFor(P => P.ProductName)
+        <br />
+        @Html.TextBoxFor(P => P.ProductName)
+    </div>
+    <div>
+        @Html.LabelFor(P => P.CategoryId)
+        <br />
+        @Html.TextBoxFor(P => P.CategoryId)
+    </div>
+    <div>
+        @Html.LabelFor(P => P.CategoryName)
+        <br />
+        @Html.TextBoxFor(P => P.CategoryName)
+    </div>
+    <div>
+        <input type="submit" value="Save" />
+        <input type="reset" value="Reset" />
+    </div>
+}
+@Html.ActionLink("Back to Product Details", "DisplayProducts")
